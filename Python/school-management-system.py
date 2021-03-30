@@ -18,3 +18,11 @@ while (condition == 1):
     
     print("\nThe entered information -->\nName: {}\nAge: {}\nContact No.: {}\nEmal ID: {}".format(st_info_list[0], st_info_list[1], st_info_list[2], st_info_list[3]))
     print("")
+
+    choice = input("Is the entered information correct (yes/no) : ")
+    if (choice == "yes"):
+        write_csv(st_info_list)
+        print("")
+    elif (choice == "no"):
+        print("\nPlease continue adding another student's information.")
+        print("")
