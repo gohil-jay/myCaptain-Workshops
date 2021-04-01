@@ -22,7 +22,13 @@ while (condition == 1):
     choice = input("Is the entered information correct (yes/no) : ")
     if (choice == "yes"):
         write_csv(st_info_list)
+        condition_check = input("Want to continue adding another student's information (yes/no) : ")
         print("")
+            if (condition_check == "yes"):
+                condition = True
+                st_num += 1
+            elif (condition_check == "no"):
+                condition = False
     elif (choice == "no"):
         print("\nPlease continue adding another student's information.")
         print("")
