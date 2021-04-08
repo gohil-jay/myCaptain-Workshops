@@ -22,4 +22,13 @@ for page_num in range(1, max_page+1):
   
   soup = BeautifulSoup(content, "html.parser")
   hotels = soup.find_all("div", {"class": "hotelCardListing"})
-  print(hotels)
+  
+  for hotel in hotels:
+    hotel_dic = {}
+    
+    hotel_dic["name"] = hotel.find("h3", {"class": "listingHotelDescription_hotelName"}).text
+    hotel_dic["address"] = hotel.find("span", {"itemprop": "streetAddress"}).text
+    hotel_dic["price"] = hotel.find("span", {"class": "listingPrice__finalPrice"}).text
+    hotel_dic["rating"] = hotel.find("span", {"class": "hotelRating__ratingSummary"}).text
+    
+  print(hotel_dic)
