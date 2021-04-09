@@ -29,6 +29,10 @@ for page_num in range(1, max_page+1):
     hotel_dic["name"] = hotel.find("h3", {"class": "listingHotelDescription_hotelName"}).text
     hotel_dic["address"] = hotel.find("span", {"itemprop": "streetAddress"}).text
     hotel_dic["price"] = hotel.find("span", {"class": "listingPrice__finalPrice"}).text
-    hotel_dic["rating"] = hotel.find("span", {"class": "hotelRating__ratingSummary"}).text
+    
+    try:
+      hotel_dic["rating"] = hotel.find("span", {"class": "hotelRating__ratingSummary"}).text
+    except AttributeError:
+      hotel_dic["rating"] = None
     
   print(hotel_dic)
