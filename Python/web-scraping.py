@@ -35,4 +35,10 @@ for page_num in range(1, max_page+1):
     except AttributeError:
       hotel_dic["rating"] = None
     
+    parent_amenity_element = hotel.find("div", {"class": "amenityWrapper"})
+    lst = []
+    for amenity in parent_amenity_element.find_all("div", {"class": "amenityWrapper__amenity"}):
+      lst.append(amenity.find("span", {"class": "d-body-sm"}).text.strip())
+    hotel_dic["amenities"] = ', '.join(lst[:-1])
+
   print(hotel_dic)
