@@ -7,3 +7,11 @@ def connect(dbname):
     print("Table created successfully!")
 
     con.close()
+
+def insert(dbname, values):
+    con = sqlite3.connect(dbname)
+    print("Inserted into the table: " + str(values))
+    insert = "INSERT INTO OYO_HOTELS (NAME, ADDRESS, PRICE, AMENITIES, RATING) VALUES (?, ?, ?, ?, ?)"
+    con.execute(insert, values)
+    con.commit()
+    con.close()
