@@ -41,4 +41,8 @@ for page_num in range(1, max_page+1):
       lst.append(amenity.find("span", {"class": "d-body-sm"}).text.strip())
     hotel_dic["amenities"] = ', '.join(lst[:-1])
 
-  print(hotel_dic)
+    scrapped_list.append(hotel_dic)
+    web-sql.insert(args.dbname, tuple(hotel_dic.values()))
+
+print(scrapped_list)
+
