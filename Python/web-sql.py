@@ -15,3 +15,16 @@ def insert(dbname, values):
     con.execute(insert, values)
     con.commit()
     con.close()
+
+    
+def get_hotel_info(dbname):
+    con = sqlite3.connect(dbname)
+    cur = con.cursor()
+    cur.execute("SELECT * FROM OYO_HOTELS")
+
+    table_data = cur.fetchall()
+
+    for record in table_data:
+        print(record)
+
+    con.close()
