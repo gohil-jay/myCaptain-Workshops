@@ -46,3 +46,5 @@ for page_num in range(1, max_page+1):
 
 print(scrapped_list)
 
+print("Getting database fie....")
+web-sql.get_hotel_info(args.dbname)
